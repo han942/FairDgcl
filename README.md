@@ -1,6 +1,6 @@
 # FairDgcl: Fairness-aware Recommendation with Dynamic Graph Contrastive Learning
 
-This is the PyTorch implementation for **FairDgcl** proposed in the paper **FairDgcl: Fairness-aware Recommendation with Dynamic Graph Contrastive Learning**, which is submitted to the Transactions on Knowledge and Data Engineering (TKDE).
+This is the PyTorch implementation for **FairDgcl** proposed in the paper **FairDgcl: Fairness-aware Recommendation with Dynamic Graph Contrastive Learning**, which has been accepted for publication in IEEE Transactions on Knowledge and Data Engineering (TKDE).
 
 
 ## 1. Introduction
@@ -28,4 +28,12 @@ Due to size limitations, we have not uploaded the data. You can refer to the lin
 The command lines to train FairDgcl on the three datasets are as below. 
 ```python
 python Main.py 
+```
+If you find this work useful for your research, please consider citing our paper:
+```
+@ARTICLE{11037524,
+  author={Chen, Wei and Yuan, Meng and Zhang, Zhao and Xie, Ruobing and Zhuang, Fuzhen and Wang, Deqing and Liu, Rui},
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={FairDgcl: Fairness-Aware Recommendation With Dynamic Graph Contrastive Learning}, 
+  year={2025},
 ```
