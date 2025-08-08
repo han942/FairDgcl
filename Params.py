@@ -1,5 +1,9 @@
 import argparse
 import sys
+import torch
+
+global device
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def ParseArgs():
 	parser = argparse.ArgumentParser(description='Model Params')
 	parser.add_argument('--lr', default=1e-3, type=float, help='learning rate')

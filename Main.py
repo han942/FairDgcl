@@ -384,27 +384,25 @@ def  seed(num):
     torch.backends.cudnn.benchmark = False
 
 if __name__ == '__main__':
-    with torch.cuda.device(args.gpu):
-        logger.saveDefault = True
-        seed_it(args.seed)
+    logger.saveDefault = True
+    seed_it(args.seed)
+    log('Start')
+    handler = DataHandler()
+    handler.LoadData()
+    log('Load Data')
 
-        log('Start')
-        handler = DataHandler()
-        handler.LoadData()
-        log('Load Data')
-
-        if not os.path.exists(args.output_dir):
+    if not os.path.exists(args.output_dir):
             os.makedirs(args.output_dir)
-        log('output_dir: {}'.format(args.output_dir))
-        perf_path = os.path.join(args.output_dir, 'performance.txt')
-        parameter_path = os.path.join(args.output_dir, 'parameter.txt')
-        f = open(parameter_path, "w")
-        for arg in sorted(vars(args)):
+    log('output_dir: {}'.format(args.output_dir))
+    perf_path = os.path.join(args.output_dir, 'performance.txt')
+    parameter_path = os.path.join(args.output_dir, 'parameter.txt')
+    f = open(parameter_path, "w")
+    for arg in sorted(vars(args)):
             print("{}: {}".format(arg, getattr(args, arg)))
             print("{}: {}".format(arg, getattr(args, arg)), file=f)
-        f.close()
-        f1 = open(perf_path, "w")
-        print("", file=f1)
-        f1.close()
-        coach = Coach(handler)
-        coach.run()
+    f.close()
+    f1 = open(perf_path, "w")
+    print("", file=f1)
+    f1.close()
+    coach = Coach(handler)
+    coach.run()

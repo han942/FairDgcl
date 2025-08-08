@@ -1,11 +1,11 @@
 from torch import nn
 import torch.nn.functional as F
 import torch
-from Params import args
+from Params import args,device
 from copy import deepcopy
 import numpy as np
 from Utils.Utils import calcRegLoss, pairPredict
-import torch_sparse
+#import torch_sparse
 
 init = nn.init.xavier_uniform_
 
@@ -132,9 +132,9 @@ class GCNLayer(nn.Module):
 
 	def forward(self, adj, embeds, flag=True):
 		if (flag):
-			return torch.spmm(adj, embeds)
-		else:
-			return torch_sparse.spmm(adj.indices(), adj.values(), adj.shape[0], adj.shape[1], embeds)
+			return torch.sparse.spmm(adj, embeds)
+		# else:
+		# 	return torch_sparse.spmm(adj.indices(), adj.values(), adj.shape[0], adj.shape[1], embeds)
 
 class vgae_encoder(Model):
 	def __init__(self):
